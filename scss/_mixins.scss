@@ -1,9 +1,9 @@
 @mixin player-button {
         display: inline-block;
         background-color: transparent;
-        width: 30px;
-        height: 30px;
         margin: 0 10px;
+        border: none;
+        outline: none;
     
     &:hover {
         cursor: pointer; 
