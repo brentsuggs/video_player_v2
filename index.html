@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        
+        <title>Video Player</title>
+        <meta name="description" content=" ">
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="video-container">
+                <video preload="auto"> 
+                    <source src="video/video.mp4" type="video/mp4">
+                    <source src="video/video.ogg" type="video/ogg">
+                    <track  label="captions" kind="subtitles" srclang="en" src="video/captions.vtt" >
+                </video>
+                <div id="player">
+                    <div id="timeline-bar">
+                        <span id="timeline">
+                            <progress id="buffer" value="0" max="100"></progress>
+                            <progress id="progress" value="0" max="100"></progress>
+                        </span>
+                    </div>
+                    <div id="control-bar">
+                    <button id="play-pause"></button>
+                    <div id="time"><span id="current">00:00</span> / <span id="duration">00:00</span></div>
+                    <button id="volume"><img src="icons/volume-on-icon.png"></button>
+                    <input id="vol-slider" type="range" min="0" max="100" value="75" step="1">
+                    <a id="cc">CC</a>
+                    <a id="fullscreen"><img src="icons/fullscreen-icon.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="captions"> 
+                <p>
+                    <span id="1" data-startTime="0.18">Now that we've looked at the architecture of the internet, let's see how you might</span>
+                    <span id="2" data-startTime="4.13">connect your personal devices to the internet inside your house.</span>
+                    <span id="3" data-startTime="7.54">Well there are many ways to connect to the internet, and</span>
+                    <span id="4" data-startTime="11.27">most often people connect wirelessly.</span>
+                    <span id="5" data-startTime="13.96">Let's look at an example of how you can connect to the internet.</span>
+                    <span id="6" data-startTime="17.94">If you live in a city or a town, you probably have a coaxial cable for</span>
+                    <span id="7" data-startTime="22.37">cable Internet, or a phone line if you have DSL, running to the outside of</span>
+                    <span id="8" data-startTime="26.88">your house, that connects you to the Internet Service Provider, or ISP.</span>
+                    <span id="9" data-startTime="32.10">If you live far out in the country, you'll more likely have</span>
+                    <span id="10" data-startTime="34.73">a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
+                    <span id="11" data-startTime="39.43">you might also use the telephone system.</span>
+                    <span id="12" data-startTime="42.35">Whether a wire comes straight from the ISP hookup outside your house, or</span>
+                    <span id="13" data-startTime="46.30">it travels over radio waves from your roof,</span>
+                    <span id="14" data-startTime="49.27">the first stop a wire will make once inside your house, is at your modem.</span>
+                    <span id="15" data-startTime="53.76">A modem is what connects the internet to your network at home.</span>
+                    <span id="16" data-startTime="57.78">A few common residential modems are DSL or</span>
+                </p>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+        <script type="text/javascript" src="js/controls.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>

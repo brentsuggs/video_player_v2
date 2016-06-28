@@ -1,0 +1,164 @@
+.video-container { 
+    position: relative;
+    
+    #player {
+        position: absolute; 
+        bottom: 5px; 
+        height: 25px; 
+        width: 100%;
+        background-color: $player-bg-color;
+    }
+    
+    video::cue {
+        font-size: .75em; 
+        z-index: 1200;
+    }
+    
+    &:hover {
+        
+        #control-bar {
+        display: block;
+        }
+        
+        #player {
+        height: 75px;
+        }
+    }  
+}
+
+#timeline-bar{ 
+    height: 25px; 
+    width: 100%;
+    padding: 10px 0;
+
+    #timeline {
+        position: relative;
+        display: block;
+        width: 95%; 
+        height: 5px; 
+        border-radius: 5px; 
+        margin: 0px auto;
+        background-color: rgba(200,200,200,.4)
+    }
+    
+    #progress, 
+    #buffer {
+        @include progress-bar;
+    }
+    
+    
+    #progress {
+        z-index: 1000;
+        
+        &::-webkit-progress-bar {
+            @include vendor-progress-bar;
+        }
+        
+        &::-moz-progress-bar {
+            @include vendor-progress-bar;
+        }
+        
+        &::-webkit-progress-value {
+            @include vendor-progress-value; 
+        }
+        
+
+        &::-moz-progress-value {
+             @include vendor-progress-value; 
+        }
+    }
+    
+    #buffer {
+        z-index: 900; 
+        
+        &::-webkit-progress-bar {
+            background-color: transparent;             
+        }
+        
+        &::-moz-progress-bar {
+            background-color: transparent;             
+        }
+        
+        &::-webkit-progress-value {
+            @include vendor-buffer-value;         
+        }
+    
+        &::-moz-progress-value {
+            @include vendor-buffer-value;           
+        }
+    }
+    
+
+    
+}
+
+#control-bar { 
+    display: none;
+    height: 50px; 
+    width: 100%; 
+    padding: 10px 5%;
+    
+    a {
+        @include player-button; 
+    }
+    
+}
+
+#time {
+    display: inline-block;
+    width: calc(100% - (273px + 10%));
+    height: 30px;
+    margin: 0;
+    color: #FFFFFF;
+    vertical-align: middle;
+}
+
+#play-pause {
+    margin-left: 0; 
+}
+
+input[type=range] { 
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 5px;
+	background: transparent;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	background: $highlight-color;
+	margin-top: -5px;
+}
+
+#vol-slider {
+    width: 15%; 
+    max-width: 200px;
+    vertical-align: middle; 
+}
+
+#fullscreen {
+    margin-right: 0;
+}
+
+#cc {
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: $cc-off-color;
+
+    &.showing {
+        color: $cc-on-color;
+    }
+}
+
+.captions span:hover {
+    cursor: pointer;
+}

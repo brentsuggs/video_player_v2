@@ -1,0 +1,41 @@
+@mixin player-button {
+        display: inline-block;
+        background-color: transparent;
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+    
+    &:hover {
+        cursor: pointer; 
+    }
+}
+
+@mixin progress-bar {
+        position: absolute;
+        display: block; 
+        width: 100%;
+        height: 5px;
+        border-radius: 5px;
+    
+    &[value] {
+        appearacne: none; 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        /* removes default border in FireFox */
+        border: none;
+    }
+}
+
+@mixin vendor-progress-value { 
+        background-color: $highlight-color; 
+        border-radius: 5px;
+}
+
+@mixin vendor-buffer-value {
+    background-color: $buffer-value-color;   
+    border-radius: 5px; 
+}
+
+@mixin vendor-progress-bar {
+    background-color: transparent;
+}               

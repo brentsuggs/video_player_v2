@@ -1,0 +1,168 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background-color: #F0F0F0;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #333333; }
+
+video {
+  width: 100%;
+  align-content: center; }
+
+.container {
+  width: 75%;
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #FFFDF7; }
+
+.clearfix::after,
+.clearfix::before {
+  content: "";
+  display: table;
+  clear: both; }
+
+.captions p {
+  font-size: 1.5em;
+  line-height: 1.7;
+  padding: 0.5% 5%; }
+
+.highlight {
+  color: #E88C0B; }
+
+.hidden {
+  display: none; }
+
+.video-container {
+  position: relative; }
+  .video-container #player {
+    position: absolute;
+    bottom: 5px;
+    height: 25px;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.1); }
+  .video-container video::cue {
+    font-size: .75em;
+    z-index: 1200; }
+  .video-container:hover #control-bar {
+    display: block; }
+  .video-container:hover #player {
+    height: 75px; }
+
+#timeline-bar {
+  height: 25px;
+  width: 100%;
+  padding: 10px 0; }
+  #timeline-bar #timeline {
+    position: relative;
+    display: block;
+    width: 95%;
+    height: 5px;
+    border-radius: 5px;
+    margin: 0px auto;
+    background-color: rgba(200, 200, 200, 0.4); }
+  #timeline-bar #progress,
+  #timeline-bar #buffer {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px; }
+    #timeline-bar #progress[value],
+    #timeline-bar #buffer[value] {
+      appearacne: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      /* removes default border in FireFox */
+      border: none; }
+  #timeline-bar #progress {
+    z-index: 1000; }
+    #timeline-bar #progress::-webkit-progress-bar {
+      background-color: transparent; }
+    #timeline-bar #progress::-moz-progress-bar {
+      background-color: transparent; }
+    #timeline-bar #progress::-webkit-progress-value {
+      background-color: #E88C0B;
+      border-radius: 5px; }
+    #timeline-bar #progress::-moz-progress-value {
+      background-color: #E88C0B;
+      border-radius: 5px; }
+  #timeline-bar #buffer {
+    z-index: 900; }
+    #timeline-bar #buffer::-webkit-progress-bar {
+      background-color: transparent; }
+    #timeline-bar #buffer::-moz-progress-bar {
+      background-color: transparent; }
+    #timeline-bar #buffer::-webkit-progress-value {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 5px; }
+    #timeline-bar #buffer::-moz-progress-value {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 5px; }
+
+#control-bar {
+  display: none;
+  height: 50px;
+  width: 100%;
+  padding: 10px 5%; }
+  #control-bar a {
+    display: inline-block;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px; }
+    #control-bar a:hover {
+      cursor: pointer; }
+
+#time {
+  display: inline-block;
+  width: calc(100% - (273px + 10%));
+  height: 30px;
+  margin: 0;
+  color: #FFFFFF;
+  vertical-align: middle; }
+
+#play-pause {
+  margin-left: 0; }
+
+input[type=range] {
+  -webkit-appearance: none; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background: transparent;
+  border: none;
+  border-radius: 3px; }
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #E88C0B;
+  margin-top: -5px; }
+
+#vol-slider {
+  width: 15%;
+  max-width: 200px;
+  vertical-align: middle; }
+
+#fullscreen {
+  margin-right: 0; }
+
+#cc {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  color: rgba(255, 255, 255, 0.6); }
+  #cc.showing {
+    color: #FFFFFF; }
+
+.captions span:hover {
+  cursor: pointer; }
+
+/*# sourceMappingURL=styles.css.map */

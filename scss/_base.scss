@@ -1,0 +1,46 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+
+body {
+    background-color: $body-bg-color;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: $primary-text-color;
+}
+
+video { 
+    width: 100%; 
+    align-content: center;
+}
+
+
+.container {
+    width: 75%;
+    max-width: 960px;
+    margin: 0 auto; 
+    background-color: $cont-bg-color;
+}
+
+.clearfix::after,
+.clearfix::before {
+    content: "";
+    display: table; 
+    clear: both; 
+}
+
+.captions p {
+    font-size: 1.5em;
+    line-height: 1.7;
+    padding: 0.5% 5%;
+}
+
+.highlight {
+    color: $highlight-color;
+}
+
+.hidden {
+    display: none; 
+}
