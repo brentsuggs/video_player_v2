@@ -17,7 +17,7 @@
     &:hover {
         
         #control-bar {
-        display: block;
+        display: flex;
         }
         
         #player {
@@ -94,6 +94,9 @@
 
 #control-bar { 
     display: none;
+    flex-direction: row; 
+    justify-content: space-around;
+    align-items: baseline;
     height: 50px; 
     width: 100%; 
     padding: 10px 5%;
@@ -105,25 +108,23 @@
 }
 
 #time {
-    display: inline-block;
-    width: calc(100% - (273px + 10%));
+    flex-basis: 35%;
     height: 30px;
-    margin: 0;
     color: #FFFFFF;
-    vertical-align: middle;
+    vertical-align: middle; 
 }
 
 #play-pause {
     margin-left: 0; 
     width: 22px; 
     height: 26px; 
-    background: url('../icons/play-icon.png');
+    background: url('../icons/play-icon.png') no-repeat;
 }
 
 #volume {
     width: 22px; 
     height: 22px; 
-    background: url('../icons/volume-on-icon.png'); 
+    background: url('../icons/volume-on-icon.png') no-repeat; 
 }
 
 input[type=range] { 
@@ -150,6 +151,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 #vol-slider {
+    flex-basis: 35%; 
     width: 15%; 
     max-width: 200px;
     vertical-align: middle; 
@@ -159,7 +161,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 22px;
     height: 22px;
     margin-right: 0;
-    background: url('../icons/fullscreen-icon.png');
+    background: url('../icons/fullscreen-icon.png') no-repeat;
 }
 
 #cc {

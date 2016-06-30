@@ -47,13 +47,13 @@ function restart () {
 function setPauseIcon () {
     playPauseBtn.css('width', '18px'); 
     playPauseBtn.css('height', '24px'); 
-    playPauseBtn.css('background', "url('../icons/pause-icon.png')"); 
+    playPauseBtn.css('background', "url('../icons/pause-icon.png') no-repeat"); 
 }
 
 function setPlayIcon () {
     playPauseBtn.css('width', '22px'); 
     playPauseBtn.css('height', '26px'); 
-    playPauseBtn.css('background', "url('../icons/play-icon.png')"); 
+    playPauseBtn.css('background', "url('../icons/play-icon.png') no-repeat"); 
 }
 
 
@@ -76,10 +76,10 @@ function togglePlayPause () {
 function toggleVolume () {
     if (video.muted) {
         video.muted = false; 
-        volumeBtn.css('background', "url('../icons/volume-on-icon.png')");
+        volumeBtn.css('background', "url('../icons/volume-on-icon.png') no-repeat");
     } else {
         video.muted = true; 
-        volumeBtn.css('background', "url('../icons/volume-off-icon.png')");
+        volumeBtn.css('background', "url('../icons/volume-off-icon.png') no-repeat");
     }
 }
 
