@@ -1,3 +1,4 @@
+//BASE PLAYER BUTTON 
 @mixin player-button {
         flex-basis: 5%;
         background-color: transparent;
@@ -7,8 +8,14 @@
     &:hover {
         cursor: pointer; 
     }
+    
+    @include phone {
+        background-size: contain; 
+    }
 }
 
+
+//VIDEO PROGRESS BARS 
 @mixin progress-bar {
         position: absolute;
         display: block; 
@@ -37,4 +44,27 @@
 
 @mixin vendor-progress-bar {
     background-color: transparent;
-}               
+}      
+
+//MEDIA BREAKPOINTS 
+
+@mixin phone {
+    @media screen and (max-width: #{$phone-width}) {
+        @content; 
+        
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: #{$tablet-width}) {
+        @content; 
+    
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width: #{$desktop-width}) {
+        @content; 
+        
+    }
+}

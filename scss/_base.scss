@@ -22,6 +22,10 @@ video {
     max-width: 960px;
     margin: 0 auto; 
     background-color: $cont-bg-color;
+    
+    @include phone {
+        width: 90%;
+    }
 }
 
 .clearfix::after,
@@ -32,9 +36,13 @@ video {
 }
 
 .captions p {
-    font-size: 1.5em;
-    line-height: 1.7;
+    font-size: 1.25em;
+    line-height: 1.5;
     padding: 0.5% 5%;
+    
+    @include phone {
+        font-size: 1em;
+    }
 }
 
 .highlight {
