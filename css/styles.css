@@ -18,6 +18,9 @@ video {
   max-width: 960px;
   margin: 0 auto;
   background-color: #FFFDF7; }
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 85%; } }
   @media screen and (max-width: 480px) {
     .container {
       width: 90%; } }
@@ -29,12 +32,12 @@ video {
   clear: both; }
 
 .captions p {
-  font-size: 1.25em;
+  font-size: 1.35em;
   line-height: 1.5;
-  padding: 0.5% 5%; }
+  padding: 0 5%; }
   @media screen and (max-width: 480px) {
     .captions p {
-      font-size: 1em; } }
+      font-size: 1.1em; } }
 
 .highlight {
   color: #E88C0B; }
@@ -116,17 +119,22 @@ video {
   align-items: center;
   height: 50px;
   width: 100%;
-  padding: 10px 5%; }
+  padding: 1% 5%; }
   #control-bar button {
     flex-basis: 5%;
+    height: 30px;
     background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
     border: none;
     outline: none; }
     #control-bar button:hover {
       cursor: pointer; }
     @media screen and (max-width: 480px) {
       #control-bar button {
-        background-size: contain; } }
+        flex-basis: 10%;
+        background-size: 80%; } }
   @media screen and (max-width: 480px) {
     #control-bar {
       height: 25px; } }
@@ -141,14 +149,10 @@ video {
 
 #play-pause {
   margin-left: 0;
-  width: 22px;
-  height: 26px;
-  background: url("../icons/play-icon.png") no-repeat; }
+  background-image: url("../icons/play-icon.png"); }
 
 #volume {
-  width: 22px;
-  height: 22px;
-  background: url("../icons/volume-on-icon.png") no-repeat; }
+  background-image: url("../icons/volume-on-icon.png"); }
 
 input[type=range] {
   -webkit-appearance: none;
@@ -175,25 +179,23 @@ input[type=range]::-webkit-slider-thumb {
   width: 15%;
   max-width: 200px;
   vertical-align: middle; }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
     #vol-slider {
       display: none; } }
 
 #fullscreen {
-  width: 22px;
-  height: 22px;
   margin-right: 0;
-  background: url("../icons/fullscreen-icon.png") no-repeat; }
+  background-image: url("../icons/fullscreen-icon.png"); }
 
 #cc {
+  font-weight: bold;
   font-size: 1.2em;
-  line-height: 1.2em;
-  color: rgba(255, 255, 255, 0.6); }
+  color: rgba(255, 255, 255, 0.75); }
   #cc.showing {
     color: #FFFFFF; }
   @media screen and (max-width: 480px) {
     #cc {
-      font-size: 1em; } }
+      font-size: 1.1em; } }
 
 .captions span:hover {
   cursor: pointer; }

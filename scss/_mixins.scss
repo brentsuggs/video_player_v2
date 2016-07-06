@@ -1,7 +1,11 @@
 //BASE PLAYER BUTTON 
 @mixin player-button {
         flex-basis: 5%;
+        height: 30px;
         background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center; 
+        background-size: 50%;
         border: none;
         outline: none;
     
@@ -10,7 +14,8 @@
     }
     
     @include phone {
-        background-size: contain; 
+        flex-basis: 10%;
+        background-size: 80%; 
     }
 }
 

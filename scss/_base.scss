@@ -23,9 +23,14 @@ video {
     margin: 0 auto; 
     background-color: $cont-bg-color;
     
+    @include tablet {
+        width: 85%;
+    }
+    
     @include phone {
         width: 90%;
     }
+    
 }
 
 .clearfix::after,
@@ -36,12 +41,12 @@ video {
 }
 
 .captions p {
-    font-size: 1.25em;
+    font-size: 1.35em;
     line-height: 1.5;
-    padding: 0.5% 5%;
+    padding: 0 5%;
     
     @include phone {
-        font-size: 1em;
+        font-size: 1.1em;
     }
 }
 

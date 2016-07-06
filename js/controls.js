@@ -32,28 +32,33 @@ function timeOutput(seconds) {
     time = date.toISOString().substr(14,5); 
     return time
 }
-
-function progress(current, duration) {
+//return percentage of time elapsed 
+function getProgress(current, duration) {
     var p = (current / duration) * 100;
     p = p.toFixed(2); 
     return p; 
 }
-
-function restart () {
+//set current time to 0 for video reset 
+function videoReset () {
     video.currentTime = 0.0; 
     setPlayIcon();
 }
 
+//set background of the playPauseBtn on toggle 
 function setPauseIcon () {
-    playPauseBtn.css('width', '18px'); 
-    playPauseBtn.css('height', '24px'); 
-    playPauseBtn.css('background', "url('../icons/pause-icon.png') no-repeat"); 
+    playPauseBtn.css('background-image', "url('../icons/pause-icon.png')"); 
 }
 
 function setPlayIcon () {
-    playPauseBtn.css('width', '22px'); 
-    playPauseBtn.css('height', '26px'); 
-    playPauseBtn.css('background', "url('../icons/play-icon.png') no-repeat"); 
+    playPauseBtn.css('background-image', "url('../icons/play-icon.png')"); 
+}
+
+//remove current caption highlight and apply the next 
+function highlight(num) {
+    $('.highlight').removeClass("highlight");
+    if (num != null) {
+        $(num).addClass("highlight");
+    }     
 }
 
 
@@ -76,10 +81,10 @@ function togglePlayPause () {
 function toggleVolume () {
     if (video.muted) {
         video.muted = false; 
-        volumeBtn.css('background', "url('../icons/volume-on-icon.png') no-repeat");
+        volumeBtn.css('background-image', "url('../icons/volume-on-icon.png')");
     } else {
         video.muted = true; 
-        volumeBtn.css('background', "url('../icons/volume-off-icon.png') no-repeat");
+        volumeBtn.css('background-image', "url('../icons/volume-off-icon.png')");
     }
 }
 
@@ -115,33 +120,26 @@ function toggleFullscreen () {
 //Update buffer value 
 function updateBuffer () {
         if (video.buffered.length == 1) {
-            var percentage = ( video.buffered.end(0) / video.duration ) * 100;
+            var percentage = getProgress(video.buffered.end(0), video.duration);
             buffer.value = percentage; 
         }
 
 }
 
 
-//update the current time display and the 
-//timeline with the currentTime property 
-//of the video element
+//update the current time text display  
 function updateCurrentTime () {
     var time = timeOutput(video.currentTime); 
     currentTime.html(time);
 }
-
+//update timeline with the currentTime property
 function updateTimeline () { 
-    var percentage = ( video.currentTime / video.duration ) * 100; 
+    var percentage = getProgress(video.currentTime, video.duration) 
     progress.value = percentage; 
 }
 
-function highlight(num) {
-    $('.highlight').removeClass("highlight");
-    if (num != null) {
-        $(num).addClass("highlight");
-    }     
-}
 
+//caption highlights on cue 
 function updateHighlightedCaption () {
     var time = video.currentTime.toFixed(2); 
     
