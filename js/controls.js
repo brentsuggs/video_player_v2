@@ -12,6 +12,8 @@ var progress = document.getElementById('progress');
 var buffer = document.getElementById('buffer'); 
 var controls = $('#control-bar'); 
 var playPauseBtn = $('#play-pause');
+var playSpeedBtn = $('#play-speed');
+var playSpeed = 0; 
 var volumeBtn = $('#volume');
 var volumeSlider = $('#vol-slider');
 var fullscrnBtn = $('#fullscreen');
@@ -74,6 +76,30 @@ function togglePlayPause () {
         video.pause();
         setPlayIcon();  
     }  
+}
+
+//set the play spead of the video 
+function setPlayspeed () {
+    if (playSpeed < 2) {
+        playSpeed++; 
+    } else {
+        playSpeed = 0; 
+    }
+    
+    switch (playSpeed) {
+        case 0:
+            video.playbackRate = 1; 
+            playSpeedBtn.text('1X'); 
+            break; 
+        case 1: 
+            video.playbackRate = 1.5; 
+            playSpeedBtn.text('1.5X');
+            break; 
+        case 2: 
+            video.playbackRate = 2; 
+             playSpeedBtn.text('2X');
+            break; 
+    }
 }
 
 //toggle the muted property of the video

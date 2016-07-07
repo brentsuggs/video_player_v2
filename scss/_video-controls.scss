@@ -10,13 +10,7 @@
     }
     
     video::cue {
-        line: 25%;
         font-size: .75em; 
-        z-index: 1200;
-    }
-    
-    video::-webkit-media-text-track-container {
-
     }
     
     &:hover {
@@ -117,8 +111,8 @@
 }
 
 #time {
-    flex-basis: 55%;
-    color: #FFFFFF;
+    flex-basis: 45%;
+    color: $bttn-on-color;
     vertical-align: middle; 
     
     @include phone {
@@ -170,17 +164,18 @@ input[type=range]::-webkit-slider-thumb {
     background-image: url('../icons/fullscreen-icon.png');
 }
 
-#cc {
-    font-weight: bold; 
+#play-speed, #cc {
+    font-weight: 500; 
     font-size: 1.2em;
-    color: $cc-off-color;
+    border: solid 1px $bttn-on-color !important; 
+    color: $bttn-off-color;
 
     &.showing {
-        color: $cc-on-color;
+        color: $bttn-on-color;
     }
     
     @include phone {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 }
 

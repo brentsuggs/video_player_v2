@@ -11,6 +11,9 @@ $(window).load( function() {
     playPauseBtn.click(togglePlayPause);
     video.click(togglePlayPause);
     
+    //PLAY SPEED
+    playSpeedBtn.click(setPlayspeed); 
+    
     //VOLUME - CAPTIONS
     volumeBtn.click(toggleVolume);
     volumeSlider.click(setVolume).mousedown(setVolume).mouseup(setVolume);
