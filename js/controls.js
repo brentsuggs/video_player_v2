@@ -48,22 +48,22 @@ function videoReset() {
 
 //set background of the playPauseBtn on toggle 
 function setPauseIcon() {
-    playPauseBtn.css('background-image', "url('../icons/pause-icon.png')"); 
+    playPauseBtn.css('background-image', "url('../video_player_v2/icons/pause-icon.png')"); 
 }
 
 function setPlayIcon() {
-    playPauseBtn.css('background-image', "url('../icons/play-icon.png')"); 
+    playPauseBtn.css('background-image', "url('../video_player_v2/icons/play-icon.png')"); 
 }
 
 //set background of the volumeBtn on toggle
 function setVolumeOn() {
     video.muted = false;
-    volumeBtn.css('background-image', "url('../icons/volume-on-icon.png')");
+    volumeBtn.css('background-image', "url('../video_player_v2/icons/volume-on-icon.png')");
 }
 
 function setVolumeOff() { 
     video.muted = true; 
-    volumeBtn.css('background-image', "url('../icons/volume-off-icon.png')");
+    volumeBtn.css('background-image', "url('../video_player_v2/icons/volume-off-icon.png')");
 }
 
 //remove current caption highlight and apply the next 
