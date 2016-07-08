@@ -48,42 +48,42 @@
     
     #progress {
         z-index: 1000;
-        
+        //chrome styling 
         &::-webkit-progress-bar {
-            @include vendor-progress-bar;
-        }
-        
-        &::-moz-progress-bar {
             @include vendor-progress-bar;
         }
         
         &::-webkit-progress-value {
             @include vendor-progress-value; 
         }
-        
-
-        &::-moz-progress-value {
-             @include vendor-progress-value; 
+        //firefox styling 
+        &::-moz-progress-bar {
+            @include vendor-progress-value;
         }
+        //ie styling 
+        &::-ms-fill {
+            @include vendor-progress-value; 
+        }
+        
     }
     
     #buffer {
         z-index: 900; 
-        
+         //chrome styling
         &::-webkit-progress-bar {
-            background-color: transparent;             
-        }
-        
-        &::-moz-progress-bar {
-            background-color: transparent;             
+            @include vendor-progress-bar;
         }
         
         &::-webkit-progress-value {
             @include vendor-buffer-value;         
+        }    
+        //firefox styling 
+        &::-moz-progress-bar {
+            @include vendor-buffer-value;             
         }
-    
-        &::-moz-progress-value {
-            @include vendor-buffer-value;           
+        //ie styling 
+        &::-ms-fill {
+            @include vendor-buffer-value; 
         }
     }
     
@@ -131,6 +131,7 @@
 input[type=range] { 
     -webkit-appearance: none;
     -moz-appearance: none;
+    -ms-appearance: none;
     outline: none;
     
 }
@@ -147,6 +148,18 @@ input[type=range]::-moz-range-track {
     border: none; 
     border-radius: 3px; 
 }
+
+input[type=range]::-ms-track {
+    height: 15px; 
+    border: none; 
+    border-radius: 3px; 
+}
+
+input[type=range]::-ms-fill-lower {
+    background: white; 
+    border-radius: 3px; 
+}
+
 
 input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
@@ -165,7 +178,15 @@ input[type=range]::-moz-range-thumb {
     width: 15px; 
     border-radius: 50%; 
     background: $highlight-color; 
-    margin-top: -5px;
+}
+
+input[type=range]::-ms-thumb {
+    -ms-appearance: none; 
+    border: none; 
+    height: 15px; 
+    width: 15px; 
+    border-radius: 50%; 
+    background: $highlight-color; 
 }
 
 #vol-slider {
@@ -184,15 +205,17 @@ input[type=range]::-moz-range-thumb {
 #play-speed, #cc {
     font-weight: 500; 
     font-size: 1.2em;
+    padding: 2px 3px;
     border: solid 2px $bttn-on-color !important; 
+    border-radius: 3px;
     color: $bttn-off-color;
 
     &.showing {
         color: $bttn-on-color;
     }
     
-    @include phone {
-        font-size: 1em;
+    @include tablet {
+        font-size: .9em;
     }
 }
 

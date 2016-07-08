@@ -2,7 +2,6 @@
 @mixin player-button {
         flex-basis: 5%;
         height: 30px;
-        padding: 0; 
         background-color: transparent;
         background-repeat: no-repeat;
         background-position: center; 
@@ -32,14 +31,6 @@
         width: 100%;
         height: 5px;
         border-radius: 5px;
-    
-    &[value] {
-        appearacne: none; 
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        /* removes default border in FireFox */
-        border: none;
-    }
 }
 
 @mixin vendor-progress-value { 

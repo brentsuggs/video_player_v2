@@ -16,6 +16,15 @@ video {
     align-content: center;
 }
 
+progress[value] {
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* removes default border in FireFox */
+    border: none;
+    background: transparent; 
+}
+
 
 .container {
     width: 75%;

@@ -32,7 +32,7 @@ function timeOutput(seconds) {
     
     date.setSeconds(seconds); 
     time = date.toISOString().substr(14,5); 
-    return time
+    return time;
 }
 //return percentage of time elapsed 
 function getProgress(current, duration) {
@@ -41,18 +41,29 @@ function getProgress(current, duration) {
     return p; 
 }
 //set current time to 0 for video reset 
-function videoReset () {
+function videoReset() {
     video.currentTime = 0.0; 
     setPlayIcon();
 }
 
 //set background of the playPauseBtn on toggle 
-function setPauseIcon () {
+function setPauseIcon() {
     playPauseBtn.css('background-image', "url('../icons/pause-icon.png')"); 
 }
 
-function setPlayIcon () {
+function setPlayIcon() {
     playPauseBtn.css('background-image', "url('../icons/play-icon.png')"); 
+}
+
+//set background of the volumeBtn on toggle
+function setVolumeOn() {
+    video.muted = false;
+    volumeBtn.css('background-image', "url('../icons/volume-on-icon.png')");
+}
+
+function setVolumeOff() { 
+    video.muted = true; 
+    volumeBtn.css('background-image', "url('../icons/volume-off-icon.png')");
 }
 
 //remove current caption highlight and apply the next 
@@ -68,7 +79,7 @@ function highlight(num) {
 
 //toggle the play and pause function of the 
 //video element and update button image
-function togglePlayPause () {
+function togglePlayPause() {
     if (video.paused) {
         video.play(); 
         setPauseIcon(); 
@@ -79,7 +90,7 @@ function togglePlayPause () {
 }
 
 //set the play spead of the video 
-function setPlayspeed () {
+function setPlayspeed() {
     if (playSpeed < 2) {
         playSpeed++; 
     } else {
@@ -104,23 +115,29 @@ function setPlayspeed () {
 
 //toggle the muted property of the video
 //element and update the button image
-function toggleVolume () {
-    if (video.muted) {
-        video.muted = false; 
-        volumeBtn.css('background-image', "url('../icons/volume-on-icon.png')");
+function toggleVolume() {
+    if (video.muted) { 
+        setVolumeOn(); 
+        volumeSlider.val(75);
     } else {
-        video.muted = true; 
-        volumeBtn.css('background-image', "url('../icons/volume-off-icon.png')");
+        setVolumeOff();
+        volumeSlider.val(0);
+    }
+}
+//set the volume of the video based on 
+//value of the volume slider (mute if value is 0)
+function setVolume() {
+    var value = volumeSlider.val() / 100; 
+    video.volume = value;
+    if (value === 0) {
+        setVolumeOff(); 
+    } else if (value > 0) {
+        setVolumeOn();
     }
 }
 
-function setVolume () {
-    var value = volumeSlider.val() / 100; 
-    video.volume = value;
-}
-
 //toggle fullscreen mode
-function toggleFullscreen () {
+function toggleFullscreen() {
     if (video.requestFullscreen) {
       video.requestFullscreen();
     } else if (video.msRequestFullscreen) {
@@ -133,7 +150,7 @@ function toggleFullscreen () {
 }
 
 //toggle video closed captions
- function toggleCC () {
+ function toggleCC() {
      if (video.textTracks[0].mode === "hidden") {
          video.textTracks[0].mode = "showing"; 
          cc.addClass("showing");
@@ -144,7 +161,7 @@ function toggleFullscreen () {
  }
 
 //Update buffer value 
-function updateBuffer () {
+function updateBuffer() {
         if (video.buffered.length == 1) {
             var percentage = getProgress(video.buffered.end(0), video.duration);
             buffer.value = percentage; 
@@ -154,19 +171,19 @@ function updateBuffer () {
 
 
 //update the current time text display  
-function updateCurrentTime () {
+function updateCurrentTime() {
     var time = timeOutput(video.currentTime); 
     currentTime.html(time);
 }
 //update timeline with the currentTime property
-function updateTimeline () { 
+function updateTimeline() { 
     var percentage = getProgress(video.currentTime, video.duration) 
     progress.value = percentage; 
 }
 
 
 //caption highlights on cue 
-function updateHighlightedCaption () {
+function updateHighlightedCaption() {
     var time = video.currentTime.toFixed(2); 
     
     if (time >= 0.18 && time < 4.13) {

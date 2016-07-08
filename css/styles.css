@@ -13,6 +13,14 @@ video {
   width: 100%;
   align-content: center; }
 
+progress[value] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* removes default border in FireFox */
+  border: none;
+  background: transparent; }
+
 .container {
   width: 75%;
   max-width: 960px;
@@ -79,35 +87,30 @@ video {
     width: 100%;
     height: 5px;
     border-radius: 5px; }
-    #timeline-bar #progress[value],
-    #timeline-bar #buffer[value] {
-      appearacne: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      /* removes default border in FireFox */
-      border: none; }
   #timeline-bar #progress {
     z-index: 1000; }
     #timeline-bar #progress::-webkit-progress-bar {
       background-color: transparent; }
-    #timeline-bar #progress::-moz-progress-bar {
-      background-color: transparent; }
     #timeline-bar #progress::-webkit-progress-value {
       background-color: #E88C0B;
       border-radius: 5px; }
-    #timeline-bar #progress::-moz-progress-value {
+    #timeline-bar #progress::-moz-progress-bar {
+      background-color: #E88C0B;
+      border-radius: 5px; }
+    #timeline-bar #progress::-ms-fill {
       background-color: #E88C0B;
       border-radius: 5px; }
   #timeline-bar #buffer {
     z-index: 900; }
     #timeline-bar #buffer::-webkit-progress-bar {
       background-color: transparent; }
-    #timeline-bar #buffer::-moz-progress-bar {
-      background-color: transparent; }
     #timeline-bar #buffer::-webkit-progress-value {
       background-color: rgba(255, 255, 255, 0.6);
       border-radius: 5px; }
-    #timeline-bar #buffer::-moz-progress-value {
+    #timeline-bar #buffer::-moz-progress-bar {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 5px; }
+    #timeline-bar #buffer::-ms-fill {
       background-color: rgba(255, 255, 255, 0.6);
       border-radius: 5px; }
 
@@ -122,7 +125,6 @@ video {
   #control-bar button {
     flex-basis: 5%;
     height: 30px;
-    padding: 0;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
@@ -158,13 +160,28 @@ video {
 
 input[type=range] {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
   outline: none; }
 
 input[type=range]::-webkit-slider-runnable-track {
-  width: 30px;
   height: 5px;
-  background: transparent;
   border: none;
+  border-radius: 3px; }
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  background: white;
+  border: none;
+  border-radius: 3px; }
+
+input[type=range]::-ms-track {
+  height: 15px;
+  border: none;
+  border-radius: 3px; }
+
+input[type=range]::-ms-fill-lower {
+  background: white;
   border-radius: 3px; }
 
 input[type=range]::-webkit-slider-thumb {
@@ -175,6 +192,22 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 50%;
   background: #E88C0B;
   margin-top: -5px; }
+
+input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+  border: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #E88C0B; }
+
+input[type=range]::-ms-thumb {
+  -ms-appearance: none;
+  border: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #E88C0B; }
 
 #vol-slider {
   flex-basis: 10%; }
@@ -189,13 +222,15 @@ input[type=range]::-webkit-slider-thumb {
 #play-speed, #cc {
   font-weight: 500;
   font-size: 1.2em;
+  padding: 2px 3px;
   border: solid 2px #FFFFFF !important;
+  border-radius: 3px;
   color: rgba(255, 255, 255, 0.75); }
   #play-speed.showing, #cc.showing {
     color: #FFFFFF; }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
     #play-speed, #cc {
-      font-size: 1em; } }
+      font-size: .9em; } }
 
 .captions span:hover {
   cursor: pointer; }
