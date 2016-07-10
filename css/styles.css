@@ -22,7 +22,7 @@ progress[value] {
   background: transparent; }
 
 .container {
-  width: 75%;
+  width: 65%;
   max-width: 960px;
   margin: 0 auto;
   background-color: #FFFDF7; }
@@ -31,7 +31,7 @@ progress[value] {
       width: 85%; } }
   @media screen and (max-width: 480px) {
     .container {
-      width: 90%; } }
+      width: 95%; } }
 
 .captions p {
   font-size: 1.35em;

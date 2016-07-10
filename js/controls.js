@@ -40,19 +40,23 @@ function getProgress(current, duration) {
     p = p.toFixed(2); 
     return p; 
 }
-//set current time to 0 for video reset 
-function videoReset() {
-    video.currentTime = 0.0; 
-    setPlayIcon();
-}
 
 //set background of the playPauseBtn on toggle 
-function setPauseIcon() {
+function videoPlay() {
+    video.play(); 
     playPauseBtn.css('background-image', "url('../icons/pause-icon.png')"); 
 }
 
-function setPlayIcon() {
+function videoPause() {
+    video.pause(); 
     playPauseBtn.css('background-image', "url('../icons/play-icon.png')"); 
+}
+
+//set current time to 0 for video reset 
+//pause video to prevent immediet 
+function videoReset() {
+    video.currentTime = 0.0; 
+    videoPause(); 
 }
 
 //set background of the volumeBtn on toggle
@@ -81,11 +85,9 @@ function highlight(num) {
 //video element and update button image
 function togglePlayPause() {
     if (video.paused) {
-        video.play(); 
-        setPauseIcon(); 
+        videoPlay(); 
     } else {
-        video.pause();
-        setPlayIcon();  
+        videoPause();  
     }  
 }
 

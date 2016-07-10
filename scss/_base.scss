@@ -27,7 +27,7 @@ progress[value] {
 
 
 .container {
-    width: 75%;
+    width: 65%;
     max-width: 960px;
     margin: 0 auto; 
     background-color: $cont-bg-color;
@@ -37,7 +37,7 @@ progress[value] {
     }
     
     @include phone {
-        width: 90%;
+        width: 95%;
     }
     
 }
