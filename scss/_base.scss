@@ -27,7 +27,7 @@ progress[value] {
 
 
 .container {
-    width: 65%;
+    width: 95%;
     max-width: 960px;
     margin: 0 auto; 
     background-color: $cont-bg-color;
@@ -36,19 +36,19 @@ progress[value] {
         width: 85%;
     }
     
-    @include phone {
-        width: 95%;
+    @include desktop {
+        width: 65%;
     }
     
 }
 
 .captions p {
-    font-size: 1.35em;
+    font-size: 1.1em;
     line-height: 1.35;
     padding: 0 5%;
     
-    @include phone {
-        font-size: 1.1em;
+    @include desktop {
+        font-size: 1.35em;
     }
 }
 

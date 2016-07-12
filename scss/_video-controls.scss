@@ -20,9 +20,17 @@
         }
         
         #player {
-        height: 75px;
+        height: 55px;
         }
     }  
+    
+    @include tablet {
+        &:hover {
+            #player {
+                height: 75px;
+            }
+        }
+    }
 }
 
 #timeline-bar{ 
@@ -96,7 +104,7 @@
     flex-direction: row; 
     justify-content: space-around;
     align-items: center;
-    height: 50px; 
+    height: 25px; 
     width: 100%; 
     padding: 1% 5%;
     
@@ -104,8 +112,8 @@
         @include player-button; 
     }
     
-    @include phone {
-        height: 25px; 
+    @include tablet {
+        height: 50px; 
     }
     
 }
@@ -114,9 +122,10 @@
     flex-basis: 45%;
     color: $bttn-on-color;
     vertical-align: middle; 
+    font-size: .75em;
     
-    @include phone {
-        font-size: .75em; 
+    @include tablet {
+        font-size: 1em; 
     }
 }
 
@@ -191,9 +200,10 @@ input[type=range]::-ms-thumb {
 
 #vol-slider {
     flex-basis: 10%; 
-//    vertical-align: middle; 
-    @include tablet {
-        display: none; 
+    display: none; 
+    
+    @include desktop {
+        display: block; 
     }
 }
 
@@ -204,7 +214,7 @@ input[type=range]::-ms-thumb {
 
 #play-speed, #cc {
     font-weight: 500; 
-    font-size: 1.2em;
+    font-size: .9em;
     padding: 2px 3px;
     border: solid 2px $bttn-on-color !important; 
     border-radius: 3px;
@@ -214,8 +224,8 @@ input[type=range]::-ms-thumb {
         color: $bttn-on-color;
     }
     
-    @include tablet {
-        font-size: .9em;
+    @include desktop {
+        font-size: 1.2em;
     }
 }
 
